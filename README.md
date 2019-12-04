@@ -5,7 +5,7 @@ Considerations:
 - For this PoV, admin will use userpass auth, although in the real world any auth method will work.
 - For Jenkins, we will use appRole for Jenkins auth, and appRole for client auth.
 - If needed, we can create a userpass login for Jenkins in case the external service is not available, to simulate the workflow with the plugin
-- The auth workflow on the Jenkins side (login to retrieve access token) will be managed by the (Jenkins Vault plugin)[https://wiki.jenkins.io/display/JENKINS/HashiCorp+Vault+Plugin].
+- The auth workflow on the Jenkins side (login to retrieve access token) will be managed by the [Jenkins Vault plugin](https://wiki.jenkins.io/display/JENKINS/HashiCorp+Vault+Plugin).
 - The auth workflow and secret retrieval on the client side (login to retrieve access token) will be managed by Vault Agent.
 
 ## Start Vault 1

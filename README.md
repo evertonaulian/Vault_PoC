@@ -70,10 +70,12 @@ path "kv1/client1/*"
 }
 ```
 -	Create approle
+```
 vault write auth/approle/role/client1 policies=client1 
+```
 -   Enable secret engine kv v1, named "kv1" in the UI
 - Create secret for client in the UI
--	write kv1/client1/dbsecrets/oraclepass
+-	write *kv1/client1/dbsecrets/oraclepass*
 
 ## Create user for Jenkins
 -	Create Jenkins policy "jenkins" to only allow retrieving secretIds and approleids
@@ -88,11 +90,13 @@ path "/auth/approle/role/client1/role-id"
 }
 ```
 -	Create a Jenkins AppRole user
+```
 vault write auth/approle/role/jenkins policies=jenkins 
-
+```
 -	Get a Jenkins AppRole secret id
+```
 vault write auth/approle/role/jenkins/secret-id -force
-
+```
 -	Enter AppRole and SecretId on the Jenkins plugin
 
 ### (Optional) create Jenkins user for easy testing/debuging
@@ -162,7 +166,7 @@ EOF
 tee output.txt.tpl <<EOF
 Password is:
 {{ with secret "kv1/client1/dbsecrets" }}
-{{ .Data.oraclePass }}
+{{ .Data.oraclepass }}
 {{ end }}
 EOF
 
